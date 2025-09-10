@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafetyNet - Practice</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <span class="material-symbols-outlined">security</span>
+            <h2>SafetyNet</h2>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="module.html">Learn</a>
+            <a href="guide.html">Guides</a>
+            <a href="emergency.html">Emergency Contacts</a>
+            <a href="activities.html" class="active">Practice</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>Practice & Prepare</h1>
+            <p>Test your knowledge and run mock drills to be truly prepared.</p>
+        </section>
+
+        <section class="quiz-section">
+            <h2>Quick Quiz</h2>
+            <form id="quizForm">
+                <div class="quiz-question">
+                    <p><strong>1.</strong> What is the first step when an earthquake starts?</p>
+                    <label><input type="radio" name="q1" value="a"> Run outside immediately</label><br>
+                    <label><input type="radio" name="q1" value="b"> Drop, Cover, and Hold On</label><br>
+                    <label><input type="radio" name="q1" value="c"> Call emergency services</label>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>2.</strong> Which of these is NOT part of a basic emergency kit?</p>
+                    <label><input type="radio" name="q2" value="a"> Water & food</label><br>
+                    <label><input type="radio" name="q2" value="b"> First-aid kit</label><br>
+                    <label><input type="radio" name="q2" value="c"> Decorative candles</label>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>3.</strong> The emergency number for fire services in India is:</p>
+                    <label><input type="radio" name="q3" value="a"> 101</label><br>
+                    <label><input type="radio" name="q3" value="b"> 108</label><br>
+                    <label><input type="radio" name="q3" value="c"> 112</label>
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="checkQuiz()">Submit Answers</button>
+            </form>
+            <p id="quizResult" style="font-weight:bold; margin-top:10px;"></p>
+        </section>
+
+        <section class="mock-drill-section">
+            <h2>Mock Drill Practice</h2>
+            <div class="mock-drill">
+                <h3>Earthquake Drill</h3>
+                <ol>
+                    <li>Announce "DRILL START" to all participants.</li>
+                    <li>Everyone performs Drop, Cover, Hold On for 30 seconds.</li>
+                    <li>Evacuate calmly to your safe meeting point.</li>
+                    <li>Count everyone and ensure no one is missing.</li>
+                    <li>Debrief after drill: what went well, what to improve.</li>
+                </ol>
+                <button class="btn btn-outline" onclick="alert('Drill Timer: Practice for 30 seconds!')">
+                    Start Drill Timer
+                </button>
+            </div>
+
+            <div class="mock-drill">
+                <h3>Fire Evacuation Drill</h3>
+                <ol>
+                    <li>Sound a fire alarm or announce "FIRE DRILL".</li>
+                    <li>Walk quickly to designated exits — no running.</li>
+                    <li>Meet at the pre-decided assembly point.</li>
+                    <li>Simulate calling fire department (101).</li>
+                    <li>Evaluate time taken & safety procedures.</li>
+                </ol>
+                <button class="btn btn-outline" onclick="alert('Practice Drill Completed!')">
+                    Mark as Done
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>EduResQ - SIH Hackathon</p>
+    </footer>
+
+    <script>
+        function checkQuiz() {
+            let score = 0;
+            if (document.querySelector('input[name="q1"]:checked')?.value === "b") score++;
+            if (document.querySelector('input[name="q2"]:checked')?.value === "c") score++;
+            if (document.querySelector('input[name="q3"]:checked')?.value === "a") score++;
+
+            const result = document.getElementById("quizResult");
+            result.textContent = `You scored ${score}/3. ${score === 3 ? "Excellent!" : "Review your notes and try again."}`;
+            result.style.color = score === 3 ? "green" : "red";
+        }
+    </script>
+
+</body>
+
+</html>
